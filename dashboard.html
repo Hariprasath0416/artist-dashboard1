@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Artist Dashboard</title>
+
+<style>
+
+body{
+font-family:Arial;
+display:flex;
+margin:0;
+}
+
+.sidebar{
+width:250px;
+background:black;
+color:white;
+height:100vh;
+padding:20px;
+}
+
+.main{
+padding:20px;
+flex:1;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>Artist Dashboard</h2>
+
+<ul>
+<li>Dashboard</li>
+<li>Upload Art</li>
+<li>Gallery</li>
+<li>Orders</li>
+<li>Earnings</li>
+</ul>
+
+</div>
+
+<div class="main">
+
+<h1>Welcome Artist 🎨</h1>
+
+<button onclick="checkServer()">Check Server</button>
+
+<p id="result"></p>
+
+</div>
+
+<script>
+
+function checkServer(){
+fetch('http://localhost:5500')
+.then(res=>res.text())
+.then(data=>{
+document.getElementById("result").innerText=data
+})
+}
+
+</script>
+
+</body>
+
+</html>
